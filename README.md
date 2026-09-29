@@ -28,6 +28,5 @@ math-calculator/
 ├── main.go
 └── internal/
     ├── operations/   # математические операции
-    ├── equations/    # уравнения
     └── fractions/    # дроби
 ```
