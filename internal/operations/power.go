@@ -11,4 +11,11 @@ func Sqrt(a float64) (float64, error) {
 	return math.Sqrt(a), nil
 }
 
-func Abs(a float64) float64 { return math.Abs(a) }
+// можно реализовать свой Abs
+
+func Abs(a float64) float64 {
+	if a < 0 {
+		return -a
+	}
+	return a
+}

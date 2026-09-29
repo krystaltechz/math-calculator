@@ -1,17 +1,12 @@
 package operations
 
-import "math"
+// через рекурсию проще
+// почему факториал float?
 
-func Factorial(n float64) (int64, error) {
-	if n < 0 || n != math.Trunc(n) {
-		return 0, ErrNotInteger
+func Factorial(n int64) int64 {
+	if n == 1 || n == 0 {
+		return 1
 	}
-	if n > 20 {
-		return 0, ErrTooBig
-	}
-	r := int64(1)
-	for i := int64(2); i <= int64(n); i++ {
-		r *= i
-	}
-	return r, nil
+
+	return n * Factorial(n-1)
 }
