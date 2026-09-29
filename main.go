@@ -6,6 +6,7 @@ import (
 	"os"
 	"strconv"
 	"strings"
+	"time"
 
 	"github.com/krystaltechz/math-calculator/internal/fractions"
 	"github.com/krystaltechz/math-calculator/internal/operations"
@@ -129,13 +130,11 @@ func main() {
 
 		case "8":
 			fmt.Println("\n--- ФАКТОРИАЛ ---")
-			a := inputFloat("Число:  ")
-			r, err := operations.Factorial(a)
-			if err != nil {
-				fmt.Println("❌", err)
-			} else {
-				fmt.Printf("✅ %g! = %d\n", a, r)
-			}
+			// дебильный метод inputFloat
+			// fmt.Scan()
+			a := int64(inputFloat("Число:  "))
+			r := operations.Factorial(a)
+			fmt.Printf("✅ %d! = %d\n", a, r)
 
 		// ===== ТРИГОНОМЕТРИЯ =====
 		case "9":
@@ -213,7 +212,8 @@ func main() {
 		}
 
 		// Пауза перед возвратом в меню
-		fmt.Println()
+		// Странная пауза :|
+		time.Sleep(5 * time.Millisecond)
 		fmt.Print("Нажмите Enter, чтобы продолжить...")
 		reader.ReadString('\n')
 	}

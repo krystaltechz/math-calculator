@@ -20,19 +20,16 @@ func New(num, den int64) (Fraction, error) {
 		num, den = -num, -den
 	}
 	g := gcd(num, den)
-	if g != 0 {
-		num, den = num/g, den/g
-	}
+	num, den = num/g, den/g
+
 	return Fraction{Num: num, Den: den}, nil
 }
 
+// Можно проще
+// a%b сам поменяет местами младший и старший аргумент
+
 func gcd(a, b int64) int64 {
-	if a < 0 {
-		a = -a
-	}
-	if b < 0 {
-		b = -b
-	}
+
 	for b != 0 {
 		a, b = b, a%b
 	}
